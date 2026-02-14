@@ -1,0 +1,129 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "block-shake",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.9166666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "icon": {
+        "props": {
+          "skewX": [
+            {
+              "frame": 0,
+              "value": 0,
+              "curve": "cubicIn"
+            },
+            {
+              "frame": 0.1,
+              "value": 2
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": -2
+            },
+            {
+              "frame": 0.21666666666666667,
+              "value": 2
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": -2
+            },
+            {
+              "frame": 0.31666666666666665,
+              "value": 2
+            },
+            {
+              "frame": 0.36666666666666664,
+              "value": -2
+            },
+            {
+              "frame": 0.43333333333333335,
+              "value": 3,
+              "curve": "cubicInOut"
+            },
+            {
+              "frame": 0.5333333333333333,
+              "value": -3,
+              "curve": "cubicInOut"
+            },
+            {
+              "frame": 0.65,
+              "value": 4,
+              "curve": "cubicInOut"
+            },
+            {
+              "frame": 0.7666666666666667,
+              "value": -4,
+              "curve": "cubicOut"
+            },
+            {
+              "frame": 0.9166666666666666,
+              "value": 0
+            }
+          ],
+          "x": [
+            {
+              "frame": 0,
+              "value": 50,
+              "curve": "cubicIn"
+            },
+            {
+              "frame": 0.1,
+              "value": 52
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": 48
+            },
+            {
+              "frame": 0.21666666666666667,
+              "value": 52
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": 48
+            },
+            {
+              "frame": 0.31666666666666665,
+              "value": 52
+            },
+            {
+              "frame": 0.36666666666666664,
+              "value": 48
+            },
+            {
+              "frame": 0.43333333333333335,
+              "value": 53,
+              "curve": "cubicInOut"
+            },
+            {
+              "frame": 0.5333333333333333,
+              "value": 47,
+              "curve": "cubicInOut"
+            },
+            {
+              "frame": 0.65,
+              "value": 54,
+              "curve": "cubicInOut"
+            },
+            {
+              "frame": 0.7666666666666667,
+              "value": 46,
+              "curve": "cubicOut"
+            },
+            {
+              "frame": 0.9166666666666666,
+              "value": 50
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

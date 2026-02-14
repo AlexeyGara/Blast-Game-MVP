@@ -1,0 +1,5 @@
+{
+  "import": {
+    "@_global-init_": "./assets/Script/global-init.ts"
+  }
+}

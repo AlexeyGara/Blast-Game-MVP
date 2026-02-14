@@ -1,0 +1,9 @@
+{
+  "engine": "cocos2d-html5",
+  "packages": "packages",
+  "version": "2.4.15",
+  "name": "Blast_MVP_Cocos",
+  "id": "a4be607e-c8bc-4c2e-a1df-e62287499a1c",
+  "isNew": false,
+  "description": "A logical game with 'Blast'-mechanics."
+}

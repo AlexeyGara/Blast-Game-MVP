@@ -1,0 +1,37 @@
+{
+  "gameSettings": {
+
+    "constants": {
+      "MAX_VALUE": "max"
+    },
+
+    "gamefield": {
+
+      "blocks": {
+        "special": {
+          "bomb": {
+            "BOMB_WAVE_RADIUS": 2,
+            "BOMB_INCLUDE_DIAGONALS": false,
+            "BOMB_MAX_WAVE_RADIUS": 3,
+            "BOMB_MAX_INCLUDE_DIAGONALS": true
+          },
+          "rocket": {
+            "LINE_DISTANCE": 0
+          }
+        }
+      }
+    },
+
+    "boosts": {
+      "teleport": {
+        "BLOCKS_TO_ACTIVATE_MIN": 0,
+        "BLOCKS_TO_ACTIVATE_MAX": 0,
+        "MAX_BLOCKS_AT_ONE_WAVE": 1
+      },
+
+      "bomb": {
+
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "blastgame_mvp-cocos",
+  "version": "1.0.0",
+  "description": "A logical game with 'Blast'-mechanics.",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage && open coverage/lcov-report/index.html",
+    "type-check": "tsc -p tsconfig.json --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "lint": "eslint ./assets/Script/ --ext .ts,.tsx",
+    "lint:fix": "eslint ./assets/Script/ --ext .ts,.tsx --fix",
+    "cleanup": "rimraf build library temp",
+    "cocos": "/Applications/Cocos/Creator/2.4.15/CocosCreator.app/Contents/MacOS/CocosCreator",
+    "build": "npm run type-check && npm run cleanup && npm run cocos -- --path . --build",
+    "build:web": "npm run build -- \"configPath=./build-web.json\"",
+    "build:web-debug": "npm run build --  \"configPath=./build-web-debug.json\" && npm run serve:web",
+    "serve:web": "serve ./build/web-mobile",
+    "deploy:web": "node deploy-web.cjs",
+    "build:android": "npm run build -- \"platform=android;template=link;debug=false;autoCompile=true\"",
+    "build:ios": "npm run build -- \"platform=ios;template=link;debug=false;autoCompile=true\""
+  },
+  "keywords": [],
+  "author": "Alexey Gara",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@stylistic/eslint-plugin-ts": "^1.8.1",
+    "@types/jest": "^30.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.2.6",
+    "gh-pages": "^6.3.0",
+    "jest": "^30.2.0",
+    "prettier": "^3.5.3",
+    "serve": "^14.2.5",
+    "ts-jest": "^29.4.6",
+    "typescript": "^4.9.5",
+    "typescript-eslint": "^8.25.0"
+  }
+}

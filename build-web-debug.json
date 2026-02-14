@@ -1,0 +1,10 @@
+{
+  "platform": "web-mobile",
+  "buildPath": "./build",
+  "webOrientation": "portrait",
+  "md5Cache": true,
+
+  "debug": true,
+  "vConsole": true,
+  "sourceMaps": true
+}

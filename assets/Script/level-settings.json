@@ -1,0 +1,49 @@
+{
+  "levelId": "initial_level",
+
+  "process": {
+
+    "scoreToWin": 15000,
+
+    "start": {
+      "startTurnsCount": 45,
+      "startBoosters": {
+        "teleport": 2,
+        "bomb": 1
+      }
+    },
+
+    "fillRules": {
+      "MAX_SPECIAL_BLOCKS_COUNT_MULTIPLIER": 0.03,
+      "BOMB_CHANCE": 0.2,
+      "BOMB_MAX_CHANCE": 0.04,
+      "ROCKET_VERTICAL_CHANCE": 0.2,
+      "ROCKET_HORIZONTAL_CHANCE": 0.1
+    }
+
+  },
+
+  "behaviour": {
+    "BLOCKS_TO_IDLE_SHAKE_MIN": 1,
+    "BLOCKS_TO_IDLE_SHAKE_MAX": 5,
+    "MAX_BLOCKS_AT_ONE_IDLE_SHAKE_WAVE": 1,
+    "DELAY_BEFORE_IDLE_SHAKE_MIN_MS": 3000,
+    "DELAY_BEFORE_IDLE_SHAKE_MAX_MS": 7500,
+
+    "MAX_COUNT_FOR_SIMPLE_BLOCKS_FILL_WAVES": 5
+  },
+
+  "reward": {
+    "TELEPORT_BOOST_FOR_EACH_SCORE_MORE_THAN": 1500,
+    "BOMB_BOOST_FOR_EACH_SCORE_MORE_THAN": 2500,
+    "TELEPORT_BOOST_EACH_WAVE_CAPACITY": 0.05,
+    "BOMB_BOOST_EACH_WAVE_CAPACITY": 0.025,
+
+    "usingBombBooster": {
+      "TELEPORT_BOOST_FOR_EACH_SCORE_MORE_THAN": 2000,
+      "BOMB_BOOST_FOR_EACH_SCORE_MORE_THAN": 3000,
+      "TELEPORT_BOOST_EACH_WAVE_CAPACITY": 0.025,
+      "BOMB_BOOST_EACH_WAVE_CAPACITY": 0.0125
+    }
+  }
+}
