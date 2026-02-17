@@ -50,7 +50,6 @@ export type SystemsProvider = {
 		 * @return Release callback.
 		 */
 		provide:(setName:string, masterPauseManager?:IPauseManager) => [IPauseManager, ReleaseSystemCallback];
-		release:(manager:IPauseManager) => void;
 	};
 
 	actionsManager:{
@@ -61,17 +60,14 @@ export type SystemsProvider = {
 		 * @return Release callback.
 		 */
 		provide:(setName:string, pauseManager?:IPauseManager) => [IActionManager, ReleaseSystemCallback];
-		release:(manager:IActionManager, pauseManager?:IPauseManager) => void;
 	};
 
 	animationsManager:{
 		provide:(setName:string, pauseManager?:IPauseManager) => [IAnimationManager, ReleaseSystemCallback];
-		release:(manager:IAnimationManager, pauseManager?:IPauseManager) => void;
 	};
 
 	soundsManager:{
 		provide:(setName:string, pauseManager?:IPauseManager) => [ISoundManager, ReleaseSystemCallback];
-		release:(manager:ISoundManager, pauseManager?:IPauseManager) => void;
 	};
 
 	musicManager:{

@@ -7,10 +7,6 @@
  * Last modified: 2026-02-10 00:56
  */
 
-// IMPORT ON THE TOP ---> [
-//import "@_global-init_";
-//import { assertProp } from "@_global-init_";
-import { assertProp }              from "./global-init";
 // ] <---- IMPORT ON THE TOP
 import { Board }                   from "@cc_components/board/Board";
 import { Boosters }                from "@cc_components/boosters/Boosters";
@@ -32,15 +28,10 @@ import { AudioVoice }              from "core/systems/audio/AudioVoice";
 import { MusicManager }            from "core/systems/audio/MusicManager";
 import { SoundsManager }           from "core/systems/audio/SoundsManager";
 import { PauseManager }            from "core/systems/PauseManager";
-import type { IActionManager }     from "core_api/action-types";
-import type {
-	IAnimationManager
-}                                  from "core_api/animation-types";
 import type { AppSettingsDTO }     from "core_api/app-settings";
 import type {
 	IAudioPlayer,
-	IMusicManager,
-	ISoundManager
+	IMusicManager
 }                                  from "core_api/audio-types";
 import type { IGameLoopUpdatable } from "core_api/gameloop-types";
 import type { IPauseManager }      from "core_api/system-types";
@@ -68,6 +59,10 @@ import type { LevelSettingsDTO } from "game_api/level-settings";
 import type { PlayerTurnResult } from "game_api/logic-api";
 import { StoreService }          from "services/StoreService";
 import { UserService }           from "services/UserService";
+// IMPORT ON THE TOP ---> [
+//import "@_global-init_";
+//import { assertProp } from "@_global-init_";
+import { assertProp }            from "./global-init";
 
 const { ccclass, property } = cc._decorator;
 import disallowMultiple = cc._decorator.disallowMultiple;
@@ -264,52 +259,55 @@ export default class Main extends cc.Component {
 				pause: {
 					provide: (setName:string, masterPauseManager?:IPauseManager) => {
 						const manager = new PauseManager(setName, masterPauseManager || this._pauseManager);
-						return [manager, ():void => ctx.systems.pause.release(manager)];
-					},
-					release: (manager:IPauseManager):void => {
-						if(manager != this._pauseManager && isDestroyable(manager)) {
-							manager.destroy();
-						}
+
+						return [manager, ():void => {
+							if(manager != this._pauseManager && isDestroyable(manager)) {
+								manager.destroy();
+							}
+						}];
 					}
 				},
 				actions: {
 					provide: (setName:string, pauseManager?:IPauseManager) => {
+						pauseManager ||= this._pauseManager;
 						const manager = new ActionManager(setName);
 						// logic phase: add
 						this._gameLoop.add(manager);
-						pauseManager?.addSystem(manager);
-						return [manager, ():void => ctx.systems.actions.release(manager, pauseManager)];
-					},
-					release: (manager:IActionManager, pauseManager?:IPauseManager):void => {
-						manager.cancelAll();
-						commonReleaseMethod(manager, pauseManager);
+						pauseManager.addSystem(manager);
+
+						return [manager, ():void => {
+							manager.cancelAll();
+							commonReleaseMethod(manager, pauseManager);
+						}];
 					}
 				},
 				animations: {
 					provide: (setName:string, pauseManager?:IPauseManager) => {
+						pauseManager ||= this._pauseManager;
 						const manager = new AnimationManager(setName);
 						// animation phase: add
 						this._gameLoop.add(manager);
-						pauseManager?.addSystem(manager);
-						return [manager, ():void => ctx.systems.animations.release(manager, pauseManager)];
-					},
-					release: (manager:IAnimationManager, pauseManager?:IPauseManager):void => {
-						manager.cancelAll();
-						commonReleaseMethod(manager, pauseManager);
+						pauseManager.addSystem(manager);
+
+						return [manager, ():void => {
+							manager.cancelAll();
+							commonReleaseMethod(manager, pauseManager);
+						}];
 					}
 				},
 				sounds: {
 					provide: (setName:string, pauseManager?:IPauseManager) => {
+						pauseManager ||= this._pauseManager;
 						const manager = new SoundsManager(setName, globalSoundsVolumeControl, ccAudioPlayerProvider);
 						// audio phase: add
 						this._gameLoop.add(manager);
-						pauseManager?.addSystem(manager);
-						return [manager, ():void => ctx.systems.sounds.release(manager, pauseManager)];
-					},
-					release: (manager:ISoundManager, pauseManager?:IPauseManager):void => {
-						manager.stopAll();
-						commonReleaseMethod(manager, pauseManager);
-					},
+						pauseManager.addSystem(manager);
+
+						return [manager, ():void => {
+							manager.stopAll();
+							commonReleaseMethod(manager, pauseManager);
+						}];
+					}
 				},
 				music: {
 					provide: ():IMusicManager => globalMusicManager,
